@@ -1,119 +1,80 @@
-# Stark Lab — website
+# Stark Lab - website
 
 Built with **Vite**. One config file controls all the content.
 
----
+## Edit the website
 
-## Edit anything (prices, services, text, contact)
+Open `src/config.js`. Prices, services, text, contact details, menu items,
+theme, and database settings are controlled there.
 
-Open **`src/config.js`**. Everything is in there:
+Run the development server:
 
-| What you want to change | Where in config.js |
-|---|---|
-| Any price | `catalogue` or `mainServices` |
-| Add / remove a service | `catalogue` → copy or delete a `{ }` line |
-| Add a whole category | `catalogue` → copy a whole `{ name … items:[] }` block |
-| Rename a service | `catalogue` → change `name` |
-| The 3 big cards | `mainServices` |
-| Phone / email / hours | `business` |
-| Headline and hero text | `hero` |
-| The 4 layers in the diagram | `layers` |
-| Pipeline labels and stats | `pipeline` |
-| The Product pop-up | `ownProduct` |
-| Menu items | `menu` |
-| Colours | `theme` + the `:root` block in `src/styles.css` |
-| Where the form saves | `database` |
-
-Save the file — the page updates instantly while `npm run dev` is running.
-
----
-
-## How to open it on your own computer
-
-### Easiest — no tools needed
-Open **`dist/starklab-offline.html`** by double-clicking it.
-That one file contains the whole site and works offline.
-
-> Do NOT double-click the `index.html` in the main folder.
-> That one is a template full of placeholders — it will look broken.
-> And `dist/index.html` needs a server, because browsers block
-> JavaScript modules opened directly from your hard drive.
-
-### Proper way — live editing
 ```bash
-npm install     # once
-npm run dev     # opens http://localhost:5173 — edits appear instantly
+npm install
+npm run dev
 ```
 
-### Other commands
+Open `http://localhost:5173`.
+
+Build the production files:
+
 ```bash
-npm run build   # builds dist/ AND dist/starklab-offline.html
-npm run preview # serves the built site so you can check it
+npm run build
+npm run preview
 ```
 
-### No Node installed? Any of these also work
+The build creates `dist/` and `dist/starklab-offline.html`.
+
+## Deploy with GitHub and Vercel
+
+GitHub stores the code and Vercel hosts the website. Vercel automatically
+deploys again whenever you push a change to GitHub.
+
+1. Create a new empty repository on GitHub.
+2. Open PowerShell in this project folder and run:
+
 ```bash
-npx serve dist            # needs Node
-python -m http.server 8000 -d dist     # needs Python — then open localhost:8000
-```
-Or install the **Live Server** extension in VS Code, right-click `dist/index.html`
-→ "Open with Live Server".
-
----
-
-## Deploy to Vercel (free)
-
-**Option A — drag and drop**
-1. `npm run build`
-2. Go to vercel.com → Add New → Project → deploy without Git
-3. Drag the **`dist`** folder in
-
-**Option B — GitHub (recommended, auto-deploys on every change)**
-1. Push this folder to a GitHub repo
-2. Vercel → Import that repo
-3. Vercel detects Vite automatically. Build `npm run build`, output `dist`
-
----
-
-## The contact form
-
-Saves to Supabase. Settings are in `config.js` → `database`.
-
-Your table must be called **`enquiries`** with these text columns:
-
-```
-name · email · service · budget · message · source · page
+git init
+git add .
+git commit -m "Initial website"
+git branch -M main
+git remote add origin YOUR_GITHUB_REPOSITORY_URL
+git push -u origin main
 ```
 
-plus `created_at` (timestamptz, default `now()`).
+3. Go to **vercel.com** -> **Add New** -> **Project**.
+4. Import the GitHub repository.
+5. Use these settings:
+   - Framework preset: `Vite`
+   - Build command: `npm run build`
+   - Output directory: `dist`
+6. Click **Deploy**.
 
-Run this once in the Supabase SQL editor so the website can write to it:
+Vercel provides a URL such as `your-project.vercel.app`. The Vercel Hobby
+plan is free for personal/non-commercial use.
 
-```sql
-alter table enquiries enable row level security;
+## Contact form
 
-create policy "website can submit"
-on enquiries for insert
-to anon
-with check (true);
+The contact form saves enquiries to the Supabase `enquiries` table. The table
+needs these columns:
+
+```text
+id, name, email, service, budget, message, source, page, created_at
 ```
 
-If saving ever fails, the form opens WhatsApp with the enquiry pre-typed,
-so an enquiry is never lost.
-
----
+The website sends an email notification through Make.com when a new enquiry is
+inserted. Never put a Supabase `service_role` key in frontend code; the
+publishable key in `src/config.js` is intended for public use.
 
 ## Files
 
-```
-src/config.js    ← EVERYTHING you edit lives here
-src/render.js    builds the HTML from config at build time
-src/app.js       menu, dropdowns, animations, form
-src/styles.css   all styling (colours at the top)
-index.html       page skeleton
-public/          robots.txt, sitemap.xml
+```text
+src/config.js    <- website content and settings
+src/render.js    <- build-time HTML generation
+src/app.js       <- interactions and contact form
+src/styles.css   <- styling
+index.html       <- page template
+public/          <- robots.txt and sitemap.xml
 ```
 
----
-
-Stark Lab · stark.connect@gmail.com · +91 98426 66957
+Stark Lab - stark.connect@gmail.com - +91 98426 66957
