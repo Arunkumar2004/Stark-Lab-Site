@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://starklab.vercel.app/sitemap.xml
