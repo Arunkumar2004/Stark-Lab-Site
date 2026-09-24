@@ -48,8 +48,9 @@ h3{margin:0;font-weight:700;letter-spacing:-.03em;color:var(--ink)}
 /* ---------------- nav ---------------- */
 nav{position:sticky;top:0;z-index:50;background:rgba(251,251,249,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--ln)}
 .nv{display:flex;align-items:center;height:var(--navh);gap:22px}
-.lg{display:flex;align-items:center;color:var(--ink);flex:0 0 auto}
+.lg{display:flex;align-items:center;gap:11px;color:var(--ink);flex:0 0 auto}
 .logo-image{display:block;width:auto;height:38px;max-width:180px;object-fit:contain}
+.lg .wd{font-family:var(--wm),var(--sans),sans-serif;font-size:14px;letter-spacing:.18em;text-transform:uppercase;line-height:1;white-space:nowrap}
 .nl{display:flex;gap:26px;margin-left:auto;font-size:15px;color:var(--tx);align-items:center}
 .nl a{position:relative;padding:4px 0;white-space:nowrap}
 .nl a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);transition:width .25s}
@@ -423,6 +424,7 @@ footer{border-top:1px solid var(--ln);padding-block:26px}
 
 @media(max-width:400px){
   .logo-image{height:32px;max-width:150px}
+  .lg .wd{font-size:12px;letter-spacing:.14em}
   .cbtn{font-size:14px;padding:10px 15px}
 }
 
