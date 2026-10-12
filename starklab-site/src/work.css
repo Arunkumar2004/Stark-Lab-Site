@@ -1,0 +1,112 @@
+/* Work page. Reuses the site tokens and components; adds the gallery,
+   the miniature frames and the viewer. */
+.whero{padding-block:clamp(34px,5.2vw,74px) clamp(16px,2.4vw,30px)}
+.whero h1{max-width:17ch}
+.whero .lead{max-width:62ch}
+
+/* ---------------- filter rail ---------------- */
+.wfilter{padding-top:8px}
+.wrail{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.wcats{flex:1 1 420px;min-width:0;cursor:default}
+.cbtn.zero{opacity:.45}
+.wdev{display:inline-flex;gap:2px;padding:4px;border:1px solid var(--ln);border-radius:999px;background:rgba(255,255,255,.8);flex:0 0 auto}
+.wdbtn{font:inherit;font-size:13.5px;font-weight:600;color:var(--tx);background:transparent;border:0;border-radius:999px;
+ padding:8px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s}
+.wdbtn i{font-family:var(--mono);font-style:normal;font-size:10px;color:var(--mu);letter-spacing:.08em}
+.wdbtn:hover{color:var(--ink)}
+.wdbtn[aria-checked="true"]{background:var(--ink);color:#fff}
+.wdbtn[aria-checked="true"] i{color:rgba(255,255,255,.6)}
+.wcount{margin:16px 0 0}
+
+/* ---------------- gallery ---------------- */
+.wgal{padding-top:22px}
+.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;--kd:.25;--kp:.2}
+.wtile{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--ln);border-radius:18px;
+ overflow:hidden;cursor:pointer;transition:transform .22s,border-color .22s,box-shadow .22s;
+ box-shadow:0 30px 60px -54px rgba(21,18,15,.5)}
+.wtile[hidden]{display:none}
+.wtile::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--acc,var(--ac));z-index:2}
+.wtile:hover{transform:translateY(-3px);border-color:var(--ln2);box-shadow:0 40px 70px -50px rgba(21,18,15,.55)}
+.wtile:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:18px}
+.wmini{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--s1);border-bottom:1px solid var(--ln);isolation:isolate}
+.wmini.phone{background:linear-gradient(160deg,var(--s1),var(--tint))}
+.wscr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--kd));pointer-events:none;
+ background:#fff;overflow:hidden;opacity:0;transition:opacity .4s}
+.wmini.phone .wscr{transform:translate(-50%,-50%) scale(var(--kp));border-radius:52px;box-shadow:0 0 0 14px #0E0E0D,0 30px 60px rgba(0,0,0,.25)}
+.wtile.ready .wscr{opacity:1}
+.wload{position:absolute;inset:0;display:grid;place-items:center;font-size:10px;transition:opacity .3s}
+.wtile.ready .wload{opacity:0}
+.wbody{padding:16px 18px 18px;display:grid;gap:6px;flex:1;align-content:start}
+.wtop{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.wtop .m{font-size:9.5px;letter-spacing:.16em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wdevb{flex:0 0 auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+ border:1px solid var(--ln2);border-radius:999px;padding:3px 8px}
+.wbody b{font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.02em;line-height:1.25}
+.wbody p{margin:0;font-size:14px;line-height:1.5;color:var(--mu)}
+.wempty{border:1px dashed var(--ln2);border-radius:18px;padding:36px 24px;text-align:center}
+.wempty[hidden]{display:none}
+.wempty p{margin:8px 0 0;color:var(--mu)}
+
+/* sample root: neutralise the site's element styles so a sample looks the same here as on its own.
+   :where() keeps specificity at element level, so a sample's own classes still win. */
+.wroot{position:relative;width:100%;height:100%;overflow:hidden;background:#fff;color:#1b1b1a;text-align:left;
+ font:400 14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:normal;-webkit-font-smoothing:antialiased}
+:where(.wroot) :is(h1,h2,h3,h4){font:inherit;font-weight:600;margin:0;max-width:none;letter-spacing:normal;color:inherit;text-wrap:wrap;line-height:1.25}
+:where(.wroot) :is(h1,h2) em{font:inherit;font-style:italic;color:inherit;letter-spacing:inherit}
+:where(.wroot) nav{position:static;z-index:auto;background:none;backdrop-filter:none;border:0}
+:where(.wroot) footer{border:0;padding:0}
+.wfail{height:100%;display:grid;place-content:center;gap:6px;text-align:center;color:#55534E;font-size:22px}
+.wfail span{font-size:16px;color:#918E88}
+
+/* ---------------- viewer ---------------- */
+.wmod{padding:18px;z-index:95}
+.wview{max-width:1440px;height:calc(100dvh - 36px);max-height:none;display:flex;flex-direction:column;gap:16px;
+ padding:clamp(16px,2.2vw,26px);overflow:hidden;border-top:3px solid var(--acc,var(--ac))}
+.vhead{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:16px 28px;flex-wrap:wrap;padding-right:48px;flex:0 0 auto}
+.vmeta{min-width:0;flex:1 1 420px}
+.vmeta>.m{font-size:10px;letter-spacing:.16em}
+.vmeta h3{font-size:clamp(22px,2.6vw,32px);letter-spacing:-.035em;margin:8px 0 0}
+.wview .vmeta p{margin:6px 0 0;font-size:15px;color:var(--mu);max-width:70ch}
+.vtags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.vtags span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx);
+ border:1px solid var(--ln);border-radius:999px;padding:4px 9px;background:var(--s1)}
+.vact{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.vnav{display:inline-flex;gap:6px}
+.vbtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--ln2);background:#fff;color:var(--ink);font-size:17px;cursor:pointer;transition:.2s}
+.vbtn:hover{border-color:var(--ink)}
+.wview .modx{top:0;right:0}
+.vstage{flex:1 1 0;min-height:0;display:grid;place-items:center;overflow:hidden;border-radius:14px;background:var(--s1);padding:14px}
+.vstage:fullscreen{background:#0E0E0D;padding:24px;border-radius:0}
+.vstage:-webkit-full-screen{background:#0E0E0D;padding:24px;border-radius:0}
+.vbox{position:relative}
+.vframe{position:absolute;left:0;top:0;transform-origin:0 0;display:flex;flex-direction:column}
+.vframe.desktop{border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(14,14,13,.14),0 50px 90px -50px rgba(14,14,13,.55)}
+.vbar{height:38px;flex:0 0 38px;display:flex;align-items:center;gap:8px;padding:0 14px;background:#EFEEEA;border-bottom:1px solid #DDDAD3}
+.vbar i{width:12px;height:12px;border-radius:50%;background:#D7D3CB}
+.vbar i:nth-child(1){background:#E5675A}.vbar i:nth-child(2){background:#E8B04A}.vbar i:nth-child(3){background:#5FB760}
+.vurl{margin:0 auto;transform:translateX(-30px);min-width:40%;max-width:60%;text-align:center;font:500 13px/26px system-ui,sans-serif;
+ color:#55534E;background:#fff;border-radius:7px;padding:0 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vframe.phone{background:#0E0E0D;border-radius:58px;padding:12px;box-shadow:0 50px 90px -50px rgba(14,14,13,.6),inset 0 0 0 2px #2a2a28}
+.vframe.phone .vscreen{border-radius:46px;overflow:hidden}
+.vnotch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:120px;height:30px;background:#0E0E0D;border-radius:0 0 18px 18px;z-index:5;pointer-events:none}
+.vscreen{position:relative;background:#fff;flex:0 0 auto}
+.wview .vnote{margin:0;font-size:9.5px;letter-spacing:.14em;flex:0 0 auto;text-align:center}
+
+/* ---------------- responsive ---------------- */
+@media(max-width:1080px){
+  .wgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .wrail{flex-direction:column;align-items:stretch;gap:12px}
+  .wcats{flex:0 0 auto;margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
+  .wdev{align-self:flex-start}
+  .wgrid{grid-template-columns:1fr;gap:14px}
+  .wmod{padding:8px;place-items:start center}
+  .wview{height:auto;max-height:calc(100dvh - 16px);overflow-y:auto;gap:14px;border-radius:16px}
+  .vhead{align-items:flex-start;padding-right:44px}
+  .vmeta{flex-basis:100%}
+  .vact{width:100%}
+  .vact .btn{flex:1 1 auto}
+  .vstage{flex:0 0 auto;padding:8px;border-radius:12px}
+  .wview .vnote{display:none}
+}

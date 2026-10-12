@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stark Lab — Ten live AI demos you can try now</title>
+<meta name="description" content="Ten self-initiated demos from Stark Lab: support triage, lead qualification, document extraction, meeting notes to actions, review replies, contract risk, order parsing, expense categorisation, a cited knowledge assistant and a live MCP server. Try each from this page.">
+<meta name="theme-color" content="#FBFBF9">
+<link rel="canonical" href="https://starklab.vercel.app/demos">
+<link rel="icon" href="/logo.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stark Lab — ten live AI demos, try them now">
+<meta property="og:description" content="Nine working agents and a live MCP server. Self-initiated demos you can run from this page, no sign-up.">
+<meta property="og:url" content="https://starklab.vercel.app/demos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Michroma&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/src/styles.css">
+<link rel="stylesheet" href="/src/pages.css">
+<link rel="stylesheet" href="/src/demos.css">
+</head>
+<body>
+<div class="bgfx"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav>
+  <div class="w nv">
+    <a class="lg" href="/"><img src="/logo.png" alt="" class="logo-image"><span class="wd"><!-- @BRAND --></span></a>
+    <div class="nl"><!-- @NAV --></div>
+    <a class="btn s deskcta" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="w dr"><!-- @NAV -->
+      <a class="btn" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+      <div class="drfoot">
+        <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
+        <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<div class="w psw">
+  <div class="pswitch" role="navigation" aria-label="Work, demos and kits">
+    <a href="/work">Work</a><a href="/demos" aria-current="page">Demos</a><a href="/kits">Kits</a>
+  </div>
+</div>
+
+<header class="w dhero" id="top">
+  <h1>Ten demos. <em>Try</em> them before you buy one.</h1>
+  <p class="lead">Live AI agents that do a real job on text you paste. No sign-up.</p>
+  <p class="note">Self-initiated demos · no client data · scores from our own test cases · inputs are not stored</p>
+</header>
+
+<section class="w dsel" aria-label="Choose a demo">
+  <div class="cscroll drail" id="drail" role="tablist" aria-label="Demo agents"><!-- filled by demos.js --></div>
+</section>
+
+<section class="w dpanel" id="demo">
+  <div class="panel on">
+    <div class="ph"><span class="live"><b></b>Live</span><span class="phname" id="dname">Support Triage</span><span class="r m" id="dretail"></span></div>
+    <div class="dgrid" id="dgrid">
+      <div class="din">
+        <div class="dlabel"><span class="m a" id="djob">Paste one support ticket.</span><span class="dsamples" id="dsamples"></span></div>
+        <textarea id="dinput" rows="12" spellcheck="false" placeholder="Paste text here, or load a sample."></textarea>
+        <label class="dq" id="dqwrap" hidden><span class="m a">Question</span><input id="dquestion" type="text" placeholder="Ask something the document answers"></label>
+        <div class="dact">
+          <button class="btn" id="drun" type="button">Run the agent<span class="ar">&rarr;</span></button>
+          <span class="fmsg" id="dmsg" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="dout" id="dout">
+        <div class="dempty" id="dempty"><span class="m">Output</span><p>The result appears here: structured fields on the left, the draft on the right, and the time it took.</p></div>
+        <div id="dresult" hidden></div>
+      </div>
+    </div>
+    <div class="dfoot">
+      <div class="dscore" id="dscore"></div>
+      <div class="dcta">
+        <span class="m">Want this one built for you?</span>
+        <a class="btn s" id="dbuild" href="/#contact">Build this for me<span class="ar">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w dmcp" id="mcp" hidden>
+  <div class="shead rv"><div><span class="m a">Connect your own client</span><h2>Point any MCP client at <em>this</em> endpoint.</h2></div>
+    <p class="lead sm">Claude Desktop, Cursor, an agent of your own. Read tools answer. The write tool only drafts a change set.</p></div>
+  <div class="dconn">
+    <div class="dcode"><span class="m">Endpoint</span><code id="mcpurl">https://starklab.vercel.app/api/mcp</code></div>
+    <div class="dcode"><span class="m">Claude Desktop · claude_desktop_config.json</span><pre id="mcpcfg"></pre></div>
+  </div>
+</section>
+
+<section class="w end" id="contact">
+  <h2>Want an agent like this, built for <em>you</em>?</h2>
+  <div class="hc">
+    <a class="btn" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+  </div>
+</section>
+</main>
+
+<footer><div class="w fo m">
+  <span>&copy; <!-- @YEAR --> <!-- @BRAND --></span>
+  <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
+  <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
+  <span class="fend">Self-initiated demos &middot; no client data</span>
+</div></footer>
+
+<script type="module" src="/src/demos.js"></script>
+</body>
+</html>

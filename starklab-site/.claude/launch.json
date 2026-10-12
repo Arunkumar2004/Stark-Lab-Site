@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "starklab-site", "runtimeExecutable": "node", "runtimeArgs": ["dev-api.mjs", "--with-vite"], "port": 5173 }
+  ]
+}

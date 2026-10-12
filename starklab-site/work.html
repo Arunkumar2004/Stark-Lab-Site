@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stark Lab — Work: twenty product UIs you can explore</title>
+<meta name="description" content="Twenty self-initiated sample product interfaces from Stark Lab: dashboards, portals, boards and phone apps with synthetic data. Open any one and use it.">
+<meta name="theme-color" content="#FBFBF9">
+<link rel="canonical" href="https://starklab.vercel.app/work">
+<link rel="icon" href="/logo.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stark Lab — twenty product screens you can use, not just look at">
+<meta property="og:description" content="Self-initiated sample interfaces with synthetic data: SaaS, operations, commerce, finance, health and more. Open any one and click around.">
+<meta property="og:url" content="https://starklab.vercel.app/work">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Michroma&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/src/styles.css">
+<link rel="stylesheet" href="/src/pages.css">
+<link rel="stylesheet" href="/src/work.css">
+</head>
+<body>
+<div class="bgfx"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav>
+  <div class="w nv">
+    <a class="lg" href="/"><img src="/logo.png" alt="" class="logo-image"><span class="wd"><!-- @BRAND --></span></a>
+    <div class="nl"><!-- @NAV --></div>
+    <a class="btn s deskcta" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="w dr"><!-- @NAV -->
+      <a class="btn" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+      <div class="drfoot">
+        <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
+        <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<div class="w psw">
+  <div class="pswitch" role="navigation" aria-label="Work, demos and kits">
+    <a href="/work" aria-current="page">Work</a><a href="/demos">Demos</a><a href="/kits">Kits</a>
+  </div>
+</div>
+
+<header class="w whero" id="top">
+  <h1>Twenty product screens. <em>Use</em> them, not just look.</h1>
+  <p class="lead">Sample dashboards, portals, boards and phone apps. Open any one and click around.</p>
+  <p class="note">Self-initiated samples · not client work · synthetic data · runs in your browser, nothing is sent anywhere</p>
+</header>
+
+<section class="w wfilter" aria-label="Filter the samples">
+  <div class="wrail">
+    <div class="cscroll wcats" id="wcats" role="tablist" aria-label="Category"><!-- filled by work.js --></div>
+    <div class="wdev" id="wdev" role="radiogroup" aria-label="Device"><!-- filled by work.js --></div>
+  </div>
+  <p class="wcount m" id="wcount" role="status" aria-live="polite"></p>
+</section>
+
+<section class="w wgal" aria-label="Sample gallery">
+  <div class="wgrid" id="wgrid"><!-- filled by work.js --></div>
+  <div class="wempty" id="wempty" hidden><span class="m">Nothing here yet</span><p id="wemptytx">No sample matches this filter. Try All.</p></div>
+</section>
+
+<section class="w end" id="contact">
+  <h2>Want a screen like this, built for <em>you</em>?</h2>
+  <div class="hc">
+    <a class="btn" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+  </div>
+</section>
+</main>
+
+<footer><div class="w fo m">
+  <span>&copy; <!-- @YEAR --> <!-- @BRAND --></span>
+  <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
+  <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
+  <span class="fend">Self-initiated samples &middot; synthetic data</span>
+</div></footer>
+
+<div class="mod wmod" id="viewer" role="dialog" aria-modal="true" aria-labelledby="vname" hidden>
+  <div class="modbg" data-close></div>
+  <div class="modc wview" id="vview">
+    <div class="vhead" id="vhead">
+      <div class="vmeta">
+        <span class="m"><span id="vcat"></span> · <span id="vsector"></span> · <span id="vdevice"></span> · <span id="vpos"></span></span>
+        <h3 id="vname">Sample</h3>
+        <p id="vblurb"></p>
+        <div class="vtags" id="vtags"></div>
+      </div>
+      <div class="vact">
+        <div class="vnav">
+          <button class="vbtn" id="vprev" type="button" aria-label="Previous sample">&larr;</button>
+          <button class="vbtn" id="vnext" type="button" aria-label="Next sample">&rarr;</button>
+        </div>
+        <button class="btn g s" id="vfull" type="button">Open full screen</button>
+        <a class="btn s" id="vbuild" href="/#contact">Build this for me<span class="ar">&rarr;</span></a>
+      </div>
+      <button class="modx" id="vclose" type="button" aria-label="Close the viewer">&times;</button>
+    </div>
+    <div class="vstage" id="vstage">
+      <div class="vbox" id="vbox"><div class="vframe" id="vframe"><!-- filled by work.js --></div></div>
+    </div>
+    <p class="vnote m">Self-initiated sample · synthetic data · use &larr; &rarr; to move between samples, Esc to close</p>
+  </div>
+</div>
+
+<script type="module" src="/src/work.js"></script>
+</body>
+</html>

@@ -184,6 +184,65 @@ export const process = {
   ]
 };
 
+/* ---- "Explore the work" teaser (links to /work, /demos and /kits) ------- */
+export const explore = {
+  eyebrow: 'Explore the work',
+  heading: 'See the work *before* we talk.',
+  sub:     'Every sample and demo here is self-initiated: built by us to show how we work, with no client data. The kits turn those demos into agents for your team.',
+  items: [
+    { tag: 'Work', note: 'Self-initiated', art: 'screens', href: '/work', cta: 'Explore the work',
+      title: 'Twenty explorable product screens',
+      points: ['Dashboards, portals, boards and mobile apps',
+               'Click through each one: real states, not screenshots',
+               'Every sample is marked self-initiated'] },
+    { tag: 'Demos', note: 'Self-initiated', art: 'agent', href: '/demos', cta: 'Try the demos',
+      title: 'Ten live agents and an MCP server',
+      points: ['Paste your own text and run the agent now',
+               'Scores come from our own test cases, shown on the page',
+               'Point Claude Desktop or Cursor at the MCP endpoint'] },
+    { tag: 'Kits', note: 'Productised', art: 'kit', href: '/kits', cta: 'Browse the kits',
+      title: 'Four agent kits, installed for your team',
+      points: ['Four kits, each one a demo you can try before you buy',
+               'Price and days from the catalogue, written down before you pay',
+               'The agent drafts; a named person on your team approves every action'] }
+  ]
+};
+
+/* ---- founder note ------------------------------------------------------ */
+export const founder = {
+  eyebrow: 'Founder',
+  heading: 'A note from the *founder*.',
+  name:    'Arun Kumar',
+  role:    'Founder, Stark Lab',
+  note:    'I’m Arun Kumar, and I run Stark Lab from India, working with clients worldwide. I built the studio around one rule: a price and a date written down before you pay, and work you can see every day until it ships. The samples and demos on this site are self-initiated, so you can judge the work before we talk.',
+  video:   { label: 'Founder video · coming this week', text: 'Two minutes: who I am, how a project runs and what it costs.' }
+};
+
+/* ---- FAQ (also published as FAQPage structured data) -------------------- */
+export const faq = {
+  eyebrow: 'Questions',
+  heading: 'Asked before *every* project.',
+  sub:     'Straight answers. If yours is not here, ask it on the call.',
+  items: [
+    { q: 'How does pricing work?',
+      a: 'One number for the whole job, written down before you pay. You pay 50% to start and 50% on delivery. There is no hourly billing, and nothing is added unless you ask for new scope in writing.' },
+    { q: 'What happens if the date slips?',
+      a: 'The date is in the written plan. If anything on our side puts it at risk, you hear about it the same day, with the reason and a new date, before it slips rather than after. If we are waiting on access or content from you, the date moves by the same number of days and we confirm that in writing.' },
+    { q: 'Who owns the code?',
+      a: 'You do. The code lives in your repository, the files and accounts are in your name, and everything transfers to you at handover. Nothing you need to run it stays with us.' },
+    { q: 'How do revisions work?',
+      a: 'Two revision rounds are written into every contract. A round is one consolidated list of changes, handled inside the dates in the plan. Anything beyond that is quoted as a fixed price before we start on it.' },
+    { q: 'Do you work white-label with agencies?',
+      a: 'Yes. We can build under your agency’s name, work inside your tools and stay off your client calls unless you want us there. Price and date are fixed in the same way.' },
+    { q: 'Which stack do you use?',
+      a: 'Python, LangGraph and the Claude API for AI agents; n8n for workflow automation; Next.js and Supabase for websites, web apps and MVPs. If your team already runs something else, tell us on the call.' },
+    { q: 'How are AI agents kept safe?',
+      a: 'Twenty agreed test cases define what done means, and the agent has to pass them before launch. A human approval step sits before anything reaches your customers, every action is logged, and changes can be undone. The live demos on this site work the same way: outputs are drafts for a human to approve.' },
+    { q: 'How do we start?',
+      a: 'Book a 20-minute call or send the form below. You leave with a price, a date and a written plan, whether or not you hire us. Work starts once the plan is agreed and the first 50% is paid.' }
+  ]
+};
+
 /* ---- contact ----------------------------------------------------------- */
 export const contact = {
   heading: "Tell us the deadline. We’ll tell you *if* we can hit it.",
@@ -197,10 +256,10 @@ export const builtFor = ['Founders', 'Agencies', 'Ops teams', 'Funded startups',
 
 /* ---- menu -------------------------------------------------------------- */
 export const menu = [
-  { label: 'Services', href: '#services' },
   { label: 'Product',  action: 'product-modal' },
-  { label: 'Pipeline', href: '#pipeline' },
+  { label: 'Services', href: '#services' },
   { label: 'Pricing',  href: '#catalogue' },
+  { label: 'Work',     href: '#explore' },
   { label: 'Process',  href: '#process' },
   { label: 'Contact',  href: '#contact' }
 ];

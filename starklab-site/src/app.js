@@ -111,6 +111,14 @@ const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
   $$('.rv, .panel').forEach(n => io.observe(n));
 })();
 
+/* ---------------- faq: one answer open at a time ---------------- */
+(() => {
+  const qs = $$('.fq'); if (!qs.length) return;
+  qs.forEach(d => d.addEventListener('toggle', () => {
+    if (d.open) qs.forEach(o => { if (o !== d) o.open = false; });
+  }));
+})();
+
 /* ---------------- pipeline dots ---------------- */
 (() => {
   const g = $('#dots'); if (!g || reduced) return;
@@ -227,6 +235,13 @@ function makeSelect(host, name, groups, placeholder, searchable) {
   const selB = makeSelect($('#selBudget'),  'budget',  budGroups, 'Select a range',  false);
 
   const msg = $('#fmsg'), send = $('#fsend');
+
+  /* arrived from a demo: start the message for them */
+  const fromDemo = sessionStorage.getItem('starklab-demo');
+  if (fromDemo && form.elements.message && !form.elements.message.value) {
+    form.elements.message.value = `I tried the ${fromDemo} demo. I'd like one built for: `;
+    sessionStorage.removeItem('starklab-demo');
+  }
 
   async function save(d) {
     if (!database.key) throw new Error('not-configured');

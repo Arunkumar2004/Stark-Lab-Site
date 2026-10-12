@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stark Lab — Agent Kits: productised agents, installed for your team</title>
+<meta name="description" content="Four productised AI agent kits from Stark Lab, plus an MCP server over your product: support, sales and leads, internal ops and a cited knowledge assistant. Fixed price and days from the catalogue, a named human approves every action, every run logged, a 30-minute handover.">
+<meta name="theme-color" content="#FBFBF9">
+<link rel="canonical" href="https://starklab.vercel.app/kits">
+<link rel="icon" href="/logo.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stark Lab — Agent Kits, installed for your team">
+<meta property="og:description" content="Productised agents we have already built, configured for your tools and your tone. Fixed price and days, a human approval step in front of every action, and a live demo of each one to try first.">
+<meta property="og:url" content="https://starklab.vercel.app/kits">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Michroma&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/src/styles.css">
+<link rel="stylesheet" href="/src/pages.css">
+<link rel="stylesheet" href="/src/kits.css">
+</head>
+<body>
+<div class="bgfx"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav>
+  <div class="w nv">
+    <a class="lg" href="/"><img src="/logo.png" alt="" class="logo-image"><span class="wd"><!-- @BRAND --></span></a>
+    <div class="nl"><!-- @NAV --></div>
+    <a class="btn s deskcta" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="w dr"><!-- @NAV -->
+      <a class="btn" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+      <div class="drfoot">
+        <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
+        <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<div class="w psw">
+  <div class="pswitch" role="navigation" aria-label="Work, demos and kits">
+    <a href="/work">Work</a><a href="/demos">Demos</a><a href="/kits" aria-current="page">Kits</a>
+  </div>
+</div>
+
+<header class="w khero" id="top">
+  <h1>Agents we have already <em>built</em>, installed for your team.</h1>
+  <p class="lead">A working agent from our demos, set up for your tools and rules, at a fixed catalogue price. A person on your team approves every action.</p>
+</header>
+
+<section class="w kits" id="kits">
+  <div class="shead rv"><div><span class="m a">The kits</span><h2>Four kits, one <em>rule</em>: the agent drafts, your team approves.</h2></div>
+    <p class="lead sm">Each kit maps to a demo you can try before you buy. Scores on the cards come from our own self-made test cases, not from clients.</p></div>
+  <div class="kgrid" id="kgrid"><!-- filled by kits.js from the catalogue --></div>
+  <div class="kextra" id="kextra"><!-- MCP server and the care plan, filled by kits.js --></div>
+</section>
+
+<section class="w kcompare" id="compare">
+  <div class="shead rv"><div><span class="m a">Side by side</span><h2>Which kit does <em>which</em> job.</h2></div>
+    <p class="lead sm">Same approval step, same logging and the same handover in every column. The differences are what it reads and what it drafts.</p></div>
+  <div class="ktable rv" id="ktable" role="region" aria-label="Kit comparison" tabindex="0"><!-- filled by kits.js --></div>
+  <p class="note">Prices and days are the catalogue figures. The MCP server is priced on the call because it depends on your product.</p>
+</section>
+
+<section class="w kinstall" id="install">
+  <div class="shead rv"><div><span class="m a">The install plan</span><h2>Four install days, the <em>same</em> for every kit.</h2></div>
+    <p class="lead sm">The &ldquo;installed in&rdquo; figure on each card is the full time from kickoff to handover. The four install days sit inside it; the days before them are build time on our side, connecting your tools.</p></div>
+  <ol class="ksteps rv">
+    <li><b>D1</b><strong>Access and twenty real cases</strong><span>Access to the tools the kit connects to, and twenty real cases from your own records with the answer your best person would give. These define what done means.</span></li>
+    <li><b>D2</b><strong>Configure and first score</strong><span>The kit is configured for your tone and rules and run against the twenty cases. You get the first score the same day, on video, with the misses shown.</span></li>
+    <li><b>D3</b><strong>Approval step and training</strong><span>The named approver is set up, alerts are wired and the team is trained in thirty minutes, recorded. Nothing reaches a customer until this step is on.</span></li>
+    <li><b>D4</b><strong>Live and handover</strong><span>The kit goes live behind the approval step. You get the handover document, the log, the accounts in your name and the care plan offer.</span></li>
+  </ol>
+</section>
+
+<section class="w knever" id="never">
+  <div class="shead rv"><div><span class="m a">The guardrails</span><h2>What a kit <em>never</em> does.</h2></div>
+    <p class="lead sm">The same three rules in every kit, written into the install rather than left to good intentions.</p></div>
+  <div class="ngrid rv">
+    <article class="ncard">
+      <span class="m">01 · Never acts alone</span>
+      <h3>Nothing is sent, posted or changed without a named human approving it.</h3>
+      <p>A kit drafts. It never sends a reply, posts a message, edits a record or changes a setting until the approver on your team says yes. The approval step is part of the install, not an option you can skip.</p>
+    </article>
+    <article class="ncard">
+      <span class="m">02 · Never acts unseen</span>
+      <h3>Every action is logged, with who approved it and when.</h3>
+      <p>Each run records what the kit read, what it drafted, who approved it and the time. You can open the log on any day. Alerts go out when a case is uncertain, a score drops or a connection fails.</p>
+    </article>
+    <article class="ncard">
+      <span class="m">03 · Never leaves you without a way back</span>
+      <h3>Every approved action can be reversed from the log.</h3>
+      <p>The undo path: each approved action is recorded with exactly what it changed, so your team can reverse it from the log. Where a connected tool has no way to reverse an action, the kit only drafts for that tool and a person completes it.</p>
+    </article>
+  </div>
+</section>
+
+<section class="w kfaq" id="faq">
+  <div class="fqhead"><div class="shead rv"><div><span class="m a">Questions</span><h2>Asked before <em>every</em> kit.</h2></div>
+    <p class="lead sm">Straight answers. If yours is not here, ask it on the call.</p></div></div>
+  <div class="fqlist rv">
+    <details class="fq"><summary><span>Can it learn our tone?</span><i aria-hidden="true"></i></summary>
+      <p>Yes, within limits you can see. On day one we take twenty of your real cases with the replies your best person would send, and the kit is configured against them. The day-two score shows how close the tone is before anything goes live. It does not change on its own after that: adjustments to tone go through us, or through the care plan, and every change is re-scored on the same twenty cases.</p></details>
+    <details class="fq"><summary><span>What if accuracy is below the bar?</span><i aria-hidden="true"></i></summary>
+      <p>The bar is the score agreed on day one on your twenty cases. If the kit is under it on day two, we tune and re-score before the approval step is switched on, so nothing reaches a customer below the bar. If your cases turn out to need a different build, we say so with the failing cases in front of you and quote the change as a fixed price before you commit further.</p></details>
+    <details class="fq"><summary><span>What happens after the four days?</span><i aria-hidden="true"></i></summary>
+      <p>The kit is live and yours: the configuration, the log and the accounts are in your name. Most teams add the Agent care plan at <b data-kit-price="Agent care plan">the catalogue price</b> for monitoring, a monthly report and fixes. Without it the kit keeps running as installed, and changes are quoted as a fixed price when you ask for them.</p></details>
+    <details class="fq"><summary><span>Can we cancel the care plan?</span><i aria-hidden="true"></i></summary>
+      <p>Yes. It is billed month by month, and one message stops it. The kit keeps running as it is; what stops is the monitoring, the monthly report and the fixes. You can start it again later without a new install.</p></details>
+  </div>
+</section>
+
+<section class="w end" id="contact">
+  <h2>Pick a kit. We&rsquo;ll tell you the <em>date</em> on the call.</h2>
+  <div class="hc">
+    <a class="btn" href="/#contact" data-kit="Agent Kit">Book a call<span class="ar">&rarr;</span></a>
+  </div>
+</section>
+</main>
+
+<footer><div class="w fo m">
+  <span>&copy; <!-- @YEAR --> <!-- @BRAND --></span>
+  <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
+  <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
+  <span class="fend">Self-initiated demos &middot; no client data</span>
+</div></footer>
+
+<script type="module" src="/src/kits.js"></script>
+</body>
+</html>

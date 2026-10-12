@@ -4,12 +4,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node dev-api.mjs --with-vite",
+    "dev:api": "node dev-api.mjs",
+    "eval:demos": "node scripts/eval-demos.mjs",
     "build": "vite build && node single.mjs",
     "preview": "vite preview",
     "open": "vite build && node single.mjs && echo \"\\nDouble-click: dist/starklab-offline.html\\n\""
   },
   "devDependencies": {
     "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0"
   }
 }

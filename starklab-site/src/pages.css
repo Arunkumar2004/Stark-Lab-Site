@@ -1,0 +1,47 @@
+/* Shared by the sub-pages (/work, /demos, /kits). Loaded after styles.css.
+   Holds the Work · Demos · Kits switch and the few rules the sub-pages need
+   that the home stylesheet does not carry. */
+
+/* ---------------- page switch ---------------- */
+.psw{padding-top:clamp(18px,2.6vw,30px)}
+.pswitch{display:flex;width:max-content;max-width:100%;gap:2px;padding:4px;border:1px solid var(--ln);border-radius:999px;
+ background:rgba(255,255,255,.8);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.pswitch::-webkit-scrollbar{display:none}
+.pswitch a{flex:0 0 auto;font-size:14.5px;font-weight:600;color:var(--tx);padding:9px 20px;border-radius:999px;white-space:nowrap;transition:.2s}
+.pswitch a:hover{color:var(--ink);background:var(--s1)}
+.pswitch a[aria-current="page"]{background:var(--ink);color:#fff}
+.pswitch a:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.psw + .whero,.psw + .dhero,.psw + .khero{padding-top:clamp(20px,3vw,40px)}
+
+/* ---------------- closing call to action ---------------- */
+.end .hc{justify-content:center}
+@media(max-width:720px){ .end .hc{justify-content:flex-start} }
+
+/* ---------------- faq (used by /kits) ---------------- */
+.fqhead{position:sticky;top:calc(var(--navh) + 24px)}
+.fqhead .shead{flex-direction:column;align-items:flex-start;gap:14px}
+.fqlist{border-top:1px solid var(--ln)}
+.fq{border-bottom:1px solid var(--ln)}
+.fq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;
+ padding:14px 2px;font-weight:600;font-size:16.5px;color:var(--ink);letter-spacing:-.02em;line-height:1.35}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary i{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--ln2);position:relative;transition:.22s}
+.fq summary i::before,.fq summary i::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1.4px;background:var(--ink);
+ transform:translate(-50%,-50%);transition:transform .22s}
+.fq summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.fq summary:hover i,.fq[open] summary i{border-color:var(--ink)}
+.fq[open] summary i::after{transform:translate(-50%,-50%) rotate(0deg)}
+.fq p{margin:0;padding:0 44px 18px 2px;font-size:15px;color:var(--mu);line-height:1.6;max-width:62ch}
+
+@media(max-width:900px){ .fqhead{position:static} }
+@media(max-width:720px){
+  .fq summary{font-size:16px}
+  .fq p{padding-right:0}
+}
+
+/* Work filters: on wide screens show every category (wrap, no hidden scroll)
+   and put the device switch on its own line, so nothing is clipped. */
+@media(min-width:721px){
+  .wfilter .wrail{flex-direction:column;align-items:flex-start}
+  .wfilter .wcats{flex:0 0 auto;width:100%;flex-wrap:wrap;overflow:visible;cursor:default}
+}
