@@ -130,15 +130,17 @@ function table() {
     approves: 'Your team, in the client they use', connects: 'Your API or database; Claude Desktop, Cursor, your own agent' };
   const all = [...cols, mcp];
   const row = (label, cell) => `<tr><th scope="row">${esc(label)}</th>${all.map(c => `<td>${cell(c)}</td>`).join('')}</tr>`;
-  const head = `<tr><th scope="col"><span class="m">Kit</span></th>${all.map(c => `<th scope="col">${esc(c.name)}</th>`).join('')}</tr>`;
+  const head = `<tr><th scope="col"><span class="m">Kit</span></th>${all.map((c, i) =>
+    `<th scope="col"><span class="kno">0${i+1}</span>${esc(c.name)}</th>`).join('')}</tr>`;
   const body = [
     row('What it reads', c => esc(c.reads)),
     row('What it drafts', c => esc(c.drafts)),
     row('Who approves', c => esc(c.approves)),
     row('Connects to', c => esc(c.connects)),
-    row('Test cases agreed', () => '<b>20</b>, on day one'),
-    row('Price', c => c.o ? `<b class="kpz">${esc(c.o.price)}</b>` : '<b class="kpz">On the call</b>'),
-    row('Days', c => c.o ? `<span class="kdy">${esc(c.o.days)}</span>` : '<span class="kdy">On the call</span>')
+    row('Test cases', () => '<b>20</b>, agreed on day one'),
+    row('Price & time', c => c.o
+      ? `<b class="kpz">${esc(c.o.price)}</b><span class="kdy">${esc(c.o.days)}</span>`
+      : '<b class="kpz">On the call</b><span class="kdy">Priced per product</span>')
   ].join('');
   return `<table><thead>${head}</thead><tbody>${body}</tbody></table>`;
 }

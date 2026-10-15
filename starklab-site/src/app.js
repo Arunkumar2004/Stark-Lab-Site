@@ -29,24 +29,37 @@ const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 })();
 
 /* ---------------- layer stack ---------------- */
+/* Still until someone interacts. Hovering a disc (or its pill) pulls it out and shows its
+   text; leaving puts it back. A click (or tap) keeps it out; the same disc again, a click
+   outside or Esc puts it back. */
 (() => {
   const sw = $('#sw'), lp = $('#lp'), ld = $('#ld');
   if (!sw || !lp || !ld) return;
-  const N = layers.length, GAP = 46;
+  const intro = ld.innerHTML;
   const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  let cur = -1, pinned = -1, hover = -1;
+  const show = () => { const i = hover > -1 ? hover : pinned; if (i !== cur) pick(i); };
   const pick = i => {
-    Array.from(sw.children).forEach((d, k) => {
-      d.classList.toggle('on', k === i);
-      d.style.transform = `translateZ(${(N-1-k)*GAP + (k < i ? 30 : 0)}px)`;
-    });
-    Array.from(lp.children).forEach((b, k) => b.classList.toggle('on', k === i));
-    ld.innerHTML = md(layers[i].text);
+    cur = i;
+    sw.classList.toggle('picked', i > -1);
+    [sw, lp].forEach(g => Array.from(g.children).forEach((d, k) => {
+      d.classList.toggle('on', k === i); d.setAttribute('aria-pressed', String(k === i));
+    }));
+    ld.classList.toggle('on', i > -1);
+    ld.innerHTML = i < 0 ? intro
+      : `<span class="m">0${i+1} / 0${layers.length}</span><b>${esc(layers[i].name)}</b><p>${md(layers[i].text)}</p>`;
   };
-  const hit = e => { const t = e.target.closest('[data-i]'); if (t) pick(+t.dataset.i); };
-  sw.addEventListener('click', hit);
-  lp.addEventListener('click', hit);
-  if (matchMedia('(pointer:fine)').matches) { sw.addEventListener('mouseover', hit); lp.addEventListener('mouseover', hit); }
-  pick(0);
+  const click = e => { const t = e.target.closest('[data-i]'); if (!t) return;
+    const i = +t.dataset.i; pinned = pinned === i ? -1 : i; hover = -1; show(); };
+  sw.addEventListener('click', click);
+  lp.addEventListener('click', click);
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    const over = e => { const t = e.target.closest('[data-i]'); if (t && +t.dataset.i !== hover) { hover = +t.dataset.i; show(); } };
+    const out = () => { hover = -1; show(); };
+    [sw, lp].forEach(g => { g.addEventListener('mouseover', over); g.addEventListener('mouseleave', out); });
+  }
+  addEventListener('click', e => { if (pinned > -1 && !e.target.closest('.hart')) { pinned = -1; show(); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && pinned > -1) { pinned = -1; hover = -1; show(); } });
 })();
 
 /* ---------------- catalogue ---------------- */
@@ -129,8 +142,10 @@ const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
     return {p, el, len: p.getTotalLength(), off: i * .13};
   }).filter(Boolean);
   let t0 = null;
+  const wrap = g.closest('.pwrap');
   const frame = t => {
     if (!t0) t0 = t;
+    if (wrap && !wrap.offsetParent) { requestAnimationFrame(frame); return; }  // phones show the other version
     const s = (t - t0) / 1000;
     dots.forEach(d => {
       const k = ((s * .26) + d.off) % 1;
@@ -162,7 +177,7 @@ function makeSelect(host, name, groups, placeholder, searchable) {
   const btn = document.createElement('button');
   btn.type = 'button'; btn.className = 'selbtn';
   btn.setAttribute('aria-haspopup', 'listbox'); btn.setAttribute('aria-expanded', 'false');
-  btn.innerHTML = '<span class="selval ph"></span><span class="selprice"></span><i class="selchev"></i>';
+  btn.innerHTML = '<span class="selval empty"></span><span class="selprice"></span><i class="selchev"></i>';
   const pan = document.createElement('div'); pan.className = 'selpan'; pan.hidden = true;
   host.append(hid, btn, pan);
   let srch = null;
@@ -194,7 +209,7 @@ function makeSelect(host, name, groups, placeholder, searchable) {
   };
   const choose = o => {
     val = o.value; hid.value = o.value;
-    const v = btn.querySelector('.selval'); v.textContent = o.label; v.classList.remove('ph');
+    const v = btn.querySelector('.selval'); v.textContent = o.label; v.classList.remove('empty');
     btn.querySelector('.selprice').textContent = o.price || '';
     shut(); btn.focus();
   };
@@ -220,7 +235,7 @@ function makeSelect(host, name, groups, placeholder, searchable) {
   });
   addEventListener('click', e => { if (open && !host.contains(e.target)) shut(); });
   return { reset(){ val=''; hid.value='';
-    const v = btn.querySelector('.selval'); v.textContent = placeholder; v.classList.add('ph');
+    const v = btn.querySelector('.selval'); v.textContent = placeholder; v.classList.add('empty');
     btn.querySelector('.selprice').textContent = ''; } };
 }
 

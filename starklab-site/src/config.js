@@ -44,13 +44,19 @@ export const hero = {
   ]
 };
 
-/* ---- the 4 layers in the hero diagram ---------------------------------- */
+/* ---- the 4 discs in the hero stack (top to bottom) ---------------------- */
 export const layers = [
-  { name: 'Interface',      color: '#BDB4A8', text: '**What your customers touch.** Fast, clear screens on every device — written and designed, not templated.' },
-  { name: 'Agents',         color: '#8B8175', text: '**Software that does the work.** Automation that finishes the job inside your workflow, every day.' },
-  { name: 'Data & logic',   color: '#57514A', text: '**Your rules and your records.** Connected properly to the tools you already pay for.' },
-  { name: 'Infrastructure', color: '#1C1A17', text: '**Hosting, monitoring and security.** Tested before launch, boring on purpose, and it stays up.' }
+  { name: 'Design',         text: '**Brand, UI and UX.** How it looks and feels: clear screens people understand in one look.' },
+  { name: 'Frontend',       text: '**The websites and apps people use.** Fast on every device, written and built, not templated.' },
+  { name: 'Backend & AI',   text: '**Logic, data, APIs and AI agents.** Your rules and records, connected to the tools you already pay for.' },
+  { name: 'Infrastructure', text: '**Hosting, security, deployment and scaling.** Tested before launch, boring on purpose, and it stays up.' }
 ];
+/* what the panel beside the stack says before a disc is clicked */
+export const stackIntro = {
+  label: 'The stack',
+  title: 'Four layers. One studio.',
+  text:  'Click a layer to see what we build there.'
+};
 
 /* ---- the delivery pipeline diagram ------------------------------------- */
 export const pipeline = {
@@ -60,6 +66,7 @@ export const pipeline = {
   coreNote: 'Fixed price · fixed date',
   inputs:  ['An idea in a doc', 'A design file', 'A stalled backlog', "A site converting 0%"],
   stages:  ['Scope', 'Build', 'Ship'],
+  stageNotes: ['Day 1', 'Daily video', 'On the date'],   // small text on the right of each stage
   outputs: [
     { name: 'A site that sells',        day: 'DAY 7'  },
     { name: 'An agent doing the work',  day: 'DAY 14' },
@@ -264,7 +271,40 @@ export const menu = [
   { label: 'Contact',  href: '#contact' }
 ];
 
-/* ---- colours ----------------------------------------------------------- */
+/* ---- footer (same on every page) --------------------------------------- */
+// '#…' links point at the home page sections; '/…' links are pages
+export const footer = {
+  heading: 'Your whole product stack. *One* studio.',
+  line:    'Websites, AI agents and MVPs on a fixed price and a fixed date.',
+  columns: [
+    { title: 'Services', links: [
+      { label: 'Websites',      href: '#catalogue' },
+      { label: 'AI agents',     href: '#catalogue' },
+      { label: 'MVP builds',    href: '#catalogue' },
+      { label: 'UI / UX design',href: '#catalogue' } ]},
+    { title: 'Explore', links: [
+      { label: 'Work',  href: '/work' },
+      { label: 'Demos', href: '/demos' },
+      { label: 'Kits',  href: '/kits' } ]},
+    { title: 'Studio', links: [
+      { label: 'Process', href: '#process' },
+      { label: 'Founder', href: '#founder' },
+      { label: 'FAQ',     href: '#faq' },
+      { label: 'Contact', href: '#contact' } ]}
+  ]
+};
+
+/* ---- social icons in the footer ----------------------------------------
+   Paste a link into url to show that icon. An empty url hides it.        */
+export const socials = [
+  { name: 'WhatsApp',  icon: 'whatsapp',  url: `https://wa.me/${business.whatsapp}` },
+  { name: 'Email',     icon: 'email',     url: `mailto:${business.email}` },
+  { name: 'LinkedIn',  icon: 'linkedin',  url: '' },
+  { name: 'X',         icon: 'x',         url: '' },
+  { name: 'Instagram', icon: 'instagram', url: '' }
+];
+
+/* ---- colours (light mode; the dark set lives in styles.css) ------------ */
 export const theme = {
   page: '#FBFBF9', surface: '#F4F4F1', ink: '#0E0E0D',
   text: '#55534E', muted: '#918E88', line: '#EDEBE6', line2: '#DBD8D1',

@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Michroma&family=JetBrains+Mono:wght@400;500&display=swap">
+<!-- @THEME_BOOT -->
 <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
@@ -28,6 +29,7 @@
     <a class="lg" href="#top"><img src="/logo.png" alt="" class="logo-image"><span class="wd"><!-- @BRAND --></span></a>
     <div class="nl"><!-- @NAV --></div>
     <a class="btn s deskcta" href="#contact">Book a call<span class="ar">&rarr;</span></a>
+    <!-- @THEME_BTN -->
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
   </div>
   <div class="drawer" id="drawer" hidden>
@@ -54,11 +56,11 @@
     <p class="note"><!-- @HERO_SMALL --></p>
   </div>
   <div class="hart">
-    <div class="stage"><div class="sw" id="sw"><!-- @LAYERS --></div></div>
-    <div class="lcap">
-      <div class="lpills" id="lp"><!-- @LAYER_PILLS --></div>
-      <p class="ldesc" id="ld"><!-- @LAYER_TEXT --></p>
+    <div class="srow2">
+      <div class="stage" id="sw" role="group" aria-label="The four layers we build"><!-- @LAYERS --></div>
+      <div class="ldesc" id="ld" aria-live="polite"><!-- @LAYER_TEXT --></div>
     </div>
+    <div class="lpills" id="lp"><!-- @LAYER_PILLS --></div>
   </div>
 </header>
 
@@ -73,6 +75,7 @@
   <div class="panel rv">
     <div class="ph"><span class="live"><b></b>Live</span><span class="phname">Stark Lab delivery pipeline</span><span class="r" id="clk">&mdash;</span></div>
     <div class="pwrap"><!-- @PIPE_SVG --></div>
+    <div class="pmob"><!-- @PIPE_MOBILE --></div>
     <div class="pstat"><!-- @PIPE_STATS --></div>
   </div>
 </section>
@@ -157,12 +160,7 @@
   </div>
 </div>
 
-<footer><div class="w fo m">
-  <span>&copy; <!-- @YEAR --> <!-- @BRAND --></span>
-  <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
-  <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
-  <span class="fend">Fixed price &middot; fixed date</span>
-</div></footer>
+<!-- @FOOTER -->
 
 <script type="module" src="/src/app.js"></script>
 </body>

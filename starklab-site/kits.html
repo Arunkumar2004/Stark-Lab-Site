@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=Michroma&family=JetBrains+Mono:wght@400;500&display=swap">
+<!-- @THEME_BOOT -->
 <link rel="stylesheet" href="/src/styles.css">
 <link rel="stylesheet" href="/src/pages.css">
 <link rel="stylesheet" href="/src/kits.css">
@@ -29,6 +30,7 @@
     <a class="lg" href="/"><img src="/logo.png" alt="" class="logo-image"><span class="wd"><!-- @BRAND --></span></a>
     <div class="nl"><!-- @NAV --></div>
     <a class="btn s deskcta" href="/#contact">Book a call<span class="ar">&rarr;</span></a>
+    <!-- @THEME_BTN -->
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
   </div>
   <div class="drawer" id="drawer" hidden>
@@ -64,6 +66,7 @@
 <section class="w kcompare" id="compare">
   <div class="shead rv"><div><span class="m a">Side by side</span><h2>Which kit does <em>which</em> job.</h2></div>
     <p class="lead sm">Same approval step, same logging and the same handover in every column. The differences are what it reads and what it drafts.</p></div>
+  <p class="khint m" aria-hidden="true">Swipe sideways to compare &rarr;</p>
   <div class="ktable rv" id="ktable" role="region" aria-label="Kit comparison" tabindex="0"><!-- filled by kits.js --></div>
   <p class="note">Prices and days are the catalogue figures. The MCP server is priced on the call because it depends on your product.</p>
 </section>
@@ -124,12 +127,7 @@
 </section>
 </main>
 
-<footer><div class="w fo m">
-  <span>&copy; <!-- @YEAR --> <!-- @BRAND --></span>
-  <a href="mailto:<!-- @EMAIL -->"><!-- @EMAIL --></a>
-  <a href="https://wa.me/<!-- @WA -->" target="_blank" rel="noopener"><!-- @WA_DISPLAY --></a>
-  <span class="fend">Self-initiated demos &middot; no client data</span>
-</div></footer>
+<!-- @FOOTER -->
 
 <script type="module" src="/src/kits.js"></script>
 </body>

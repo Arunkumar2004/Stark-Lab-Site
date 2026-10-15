@@ -5,11 +5,11 @@
 /* ---------------- page switch ---------------- */
 .psw{padding-top:clamp(18px,2.6vw,30px)}
 .pswitch{display:flex;width:max-content;max-width:100%;gap:2px;padding:4px;border:1px solid var(--ln);border-radius:999px;
- background:rgba(255,255,255,.8);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ background:var(--glass);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .pswitch::-webkit-scrollbar{display:none}
 .pswitch a{flex:0 0 auto;font-size:14.5px;font-weight:600;color:var(--tx);padding:9px 20px;border-radius:999px;white-space:nowrap;transition:.2s}
 .pswitch a:hover{color:var(--ink);background:var(--s1)}
-.pswitch a[aria-current="page"]{background:var(--ink);color:#fff}
+.pswitch a[aria-current="page"]{background:var(--ink);color:var(--on)}
 .pswitch a:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 .psw + .whero,.psw + .dhero,.psw + .khero{padding-top:clamp(20px,3vw,40px)}
 
