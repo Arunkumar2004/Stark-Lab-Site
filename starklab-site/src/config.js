@@ -17,7 +17,7 @@ export const business = {
   whatsappDisplay: '+91 98426 66957',
   hours:     'Mon – Sat · 9:00 – 21:00 IST',
   hoursNote: 'We take clients worldwide and work to your timezone.',
-  url:       'https://starklab.vercel.app',
+  url:       'https://www.starklab.space',
   nextSlot:  '30 Sep',                  // shown in the hero chip
   openSlots: 2
 };

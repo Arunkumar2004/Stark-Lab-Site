@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://starklab.vercel.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://starklab.vercel.app/work</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://starklab.vercel.app/demos</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://starklab.vercel.app/kits</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.starklab.space/</loc><lastmod>2026-10-25</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.starklab.space/work</loc><lastmod>2026-10-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.starklab.space/demos</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.starklab.space/kits</loc><lastmod>2026-10-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
