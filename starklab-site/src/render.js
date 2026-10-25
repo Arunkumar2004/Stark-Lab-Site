@@ -179,7 +179,8 @@ const exploreSection = () => shead(C.explore)
 const founderSection = () => { const f = C.founder; return `<div class="fgrid rv">
        <div class="fcopy"><span class="m a">${esc(f.eyebrow)}</span><h2>${em(f.heading)}</h2>
          <p>${esc(f.note)}</p><p class="fsig"><b>${esc(f.name)}</b><span>${esc(f.role)}</span></p></div>
-       <div class="fvid" role="note" aria-label="${esc(f.video.label)}"><span class="m">${esc(f.video.label)}</span><p>${esc(f.video.text)}</p></div>
+       <figure class="fimg"><img src="${esc(f.image.src)}" alt="${esc(f.image.alt)}" loading="lazy" decoding="async" width="1024" height="538">
+         <figcaption><span class="m">${esc(f.image.label)}</span><p>${esc(f.image.caption)}</p></figcaption></figure>
      </div>`; };
 
 const faqSection = () => `<div class="fqhead">${shead(C.faq)}</div>`

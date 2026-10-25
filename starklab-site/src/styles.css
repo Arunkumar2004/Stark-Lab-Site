@@ -673,9 +673,11 @@ nav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blu
 .fcopy .fsig{margin-top:16px;display:flex;gap:6px 12px;align-items:baseline;flex-wrap:wrap;font-size:15px}
 .fsig b{color:var(--ink);font-weight:600}
 .fsig span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
-.fvid{border:1px dashed var(--ln2);border-radius:16px;background:var(--s1);aspect-ratio:16/9;display:flex;flex-direction:column;
- justify-content:flex-end;padding:18px 20px}
-.fvid p{margin:6px 0 0;font-size:14px;color:var(--mu);max-width:34ch;line-height:1.5}
+.fimg{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--ln);aspect-ratio:1024/538;background:var(--s1)}
+.fimg img{display:block;width:100%;height:100%;object-fit:cover}
+.fimg figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 20px 16px;background:linear-gradient(to top,rgba(8,8,10,.78),transparent)}
+.fimg .m{color:rgba(255,255,255,.75)}
+.fimg p{margin:4px 0 0;font-size:15px;color:#fff;line-height:1.4}
 
 /* questions */
 .fqs{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,64px);align-items:start}

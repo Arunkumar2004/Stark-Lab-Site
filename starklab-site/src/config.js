@@ -222,7 +222,12 @@ export const founder = {
   name:    'Arun Kumar',
   role:    'Founder, Stark Lab',
   note:    'I’m Arun Kumar, and I run Stark Lab from India, working with clients worldwide. I built the studio around one rule: a price and a date written down before you pay, and work you can see every day until it ships. The samples and demos on this site are self-initiated, so you can judge the work before we talk.',
-  video:   { label: 'Founder video · coming this week', text: 'Two minutes: who I am, how a project runs and what it costs.' }
+  image: {                                  // picture beside the note
+    src:     '/founder.webp',
+    alt:     'A founder working on a laptop at a rooftop desk in an Indian city, beside a global office skyline',
+    label:   'From India',
+    caption: 'Building for teams worldwide.'
+  }
 };
 
 /* ---- FAQ (also published as FAQPage structured data) -------------------- */
